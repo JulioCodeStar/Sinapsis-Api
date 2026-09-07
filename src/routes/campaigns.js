@@ -29,28 +29,7 @@ router.put('/:id/totals', async (req, res) => {
   }
 });
 
-/**
- * @openapi
- * /api/campaigns/{id}/status:
- *   put:
- *     summary: Actualiza el estado de proceso de una campaña según sus mensajes pendientes
- *     tags: [Campaigns]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *     responses:
- *       200:
- *         description: Estado actualizado
- *       400:
- *         description: id inválido
- *       404:
- *         description: Campaña no encontrada
- *       500:
- *         description: Error interno
- */
+
 router.put('/:id/status', async (req, res) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
