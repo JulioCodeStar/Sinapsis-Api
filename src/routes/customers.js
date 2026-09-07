@@ -2,35 +2,7 @@ const { Router } = require('express');
 const pool = require('../config/db');
 const router = Router();
 
-/**
- * @openapi
- * /api/customers/successful-messages:
- *   get:
- *     summary: Total de mensajes exitosos por cliente en un rango de fechas
- *     tags: [Customers]
- *     parameters:
- *       - in: query
- *         name: start_date
- *         required: true
- *         schema:
- *           type: string
- *           format: date
- *           example: "2026-01-01"
- *       - in: query
- *         name: end_date
- *         required: true
- *         schema:
- *           type: string
- *           format: date
- *           example: "2026-01-31"
- *     responses:
- *       200:
- *         description: Listado de clientes con su total de mensajes exitosos
- *       400:
- *         description: Formato de fecha inválido
- *       500:
- *         description: Error interno
- */
+
 router.get('/successful-messages', async (req, res) => {
   const { start_date, end_date } = req.query;
   const regex = /^\d{4}-\d{2}-\d{2}$/;

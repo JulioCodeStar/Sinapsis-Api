@@ -2,28 +2,7 @@ const { Router } = require('express');
 const pool = require('../config/db');
 const router = Router();
 
-/**
- * @openapi
- * /api/campaigns/{id}/totals:
- *   put:
- *     summary: Recalcula y actualiza los totales de una campaña
- *     tags: [Campaigns]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *     responses:
- *       200:
- *         description: Totales actualizados
- *       400:
- *         description: id inválido
- *       404:
- *         description: Campaña no encontrada
- *       500:
- *         description: Error interno
- */
+
 router.put('/:id/totals', async (req, res) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {

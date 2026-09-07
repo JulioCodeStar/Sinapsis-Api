@@ -9,18 +9,7 @@ app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-/**
- * @openapi
- * /database:
- *   get:
- *     summary: Verifica el estado de la conexión a la base de datos
- *     tags: [Database]
- *     responses:
- *       200:
- *         description: Conexión exitosa
- *       500:
- *         description: Error de conexión
- */
+
 app.get('/database', async (req, res) => {
   try {
     await pool.query('SELECT 1');
